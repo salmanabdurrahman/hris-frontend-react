@@ -1,4 +1,4 @@
-const DetailedFeatureSection = () => {
+const HomeDetailedFeature = () => {
   return (
     <section className="overflow-hidden bg-white py-24 dark:bg-gray-900">
       <div className="container mx-auto px-4">
@@ -38,4 +38,4 @@ const DetailedFeatureSection = () => {
   );
 };
 
-export default DetailedFeatureSection;
+export default HomeDetailedFeature;

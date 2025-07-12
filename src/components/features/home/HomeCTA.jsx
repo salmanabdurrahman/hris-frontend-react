@@ -1,4 +1,4 @@
-const CTASection = () => {
+const HomeCTA = () => {
   return (
     <section className="bg-blue-600 py-24">
       <div className="container mx-auto px-4">
@@ -21,4 +21,4 @@ const CTASection = () => {
   );
 };
 
-export default CTASection;
+export default HomeCTA;

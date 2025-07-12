@@ -1,6 +1,6 @@
 import { features } from "../../../constants/homePageData";
 
-const FeaturesSection = () => {
+const HomeFeatures = () => {
   return (
     <section className="overflow-hidden bg-gray-50 py-24 dark:bg-gray-900/50">
       <div className="container mx-auto px-4">
@@ -30,4 +30,4 @@ const FeaturesSection = () => {
   );
 };
 
-export default FeaturesSection;
+export default HomeFeatures;

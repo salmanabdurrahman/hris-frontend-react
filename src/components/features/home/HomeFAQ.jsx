@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { faqs } from "../../../constants/homePageData";
 
-const FAQSection = () => {
+const HomeFAQ = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleToggleFAQ = index => {
@@ -37,4 +37,4 @@ const FAQSection = () => {
   );
 };
 
-export default FAQSection;
+export default HomeFAQ;

@@ -1,6 +1,6 @@
 import { testimonials } from "../../../constants/homePageData";
 
-const TestimonialsSection = () => {
+const HomeTestimonials = () => {
   return (
     <section className="overflow-hidden bg-gray-50 py-24 dark:bg-gray-900/50">
       <div className="container mx-auto px-4">
@@ -38,4 +38,4 @@ const TestimonialsSection = () => {
   );
 };
 
-export default TestimonialsSection;
+export default HomeTestimonials;

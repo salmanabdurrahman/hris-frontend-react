@@ -1,4 +1,4 @@
-const HeroSection = () => {
+const HomeHero = () => {
   return (
     <section className="relative flex min-h-[calc(100vh-80px)] items-center justify-center overflow-hidden bg-blue-50 py-20 dark:bg-gray-800/50">
       <div className="hero-pattern absolute inset-0" />
@@ -28,4 +28,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default HomeHero;
