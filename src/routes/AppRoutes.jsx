@@ -4,6 +4,7 @@ import HomePage from "../pages/HomePage";
 import LoginPage from "../pages/LoginPage";
 import DashboardLayout from "../components/layouts/dashboard/DashboardLayout";
 import DashboardPage from "../pages/dashboard/DashboardPage";
+import EditProfilePage from "../pages/dashboard/EditProfilePage";
 
 const AppRoutes = () => {
   return (
@@ -18,7 +19,7 @@ const AppRoutes = () => {
         {/* Dashboard Routes */}
         <Route path="/dashboard" element={<DashboardLayout />}>
           <Route index element={<DashboardPage />} />
-          <Route path="edit-profile" element={<h1>Edit Profile</h1>} />
+          <Route path="edit-profile" element={<EditProfilePage />} />
           <Route path="add-employee" element={<h1>Add Employee</h1>} />
           <Route path="edit-employee/:id" element={<h1>Edit Employee</h1>} />
         </Route>
