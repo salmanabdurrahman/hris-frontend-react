@@ -1,1 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
 @import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Fonts */
+  --font-jakarta-sans: "Plus Jakarta Sans", sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-jakarta-sans);
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f9fafb;
+  }
+
+  html.dark body {
+    background-color: #111827;
+  }
+
+  /* Elevation on hover */
+  .hover-elevate {
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .hover-elevate:hover {
+    transform: translateY(-8px);
+    box-shadow:
+      0 20px 25px -5px rgb(0 0 0 / 0.1),
+      0 8px 10px -6px rgb(0 0 0 / 0.1);
+  }
+
+  /* FAQ */
+  .faq-question {
+    cursor: pointer;
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+  }
+
+  .faq-item.active .faq-answer {
+    max-height: 200px;
+  }
+
+  .faq-item.active .faq-chevron {
+    transform: rotate(180deg);
+  }
+
+  .faq-chevron {
+    transition: transform 0.3s ease;
+  }
+
+  /* Logo */
+  .logo-grayscale {
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition:
+      filter 0.3s ease,
+      opacity 0.3s ease;
+  }
+
+  .logo-grayscale:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+
+  /* Hero pattern */
+  .hero-pattern {
+    background-image: radial-gradient(circle at center center, rgba(0, 0, 0, 0.03), transparent);
+    background-size: 20px 20px;
+  }
+
+  html.dark .hero-pattern {
+    background-image: radial-gradient(circle at center center, rgba(255, 255, 255, 0.03), transparent);
+  }
+}
+
+@layer components {
+}
