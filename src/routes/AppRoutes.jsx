@@ -3,6 +3,7 @@ import MainLayout from "../components/layouts/main/MainLayout";
 import HomePage from "../pages/HomePage";
 import LoginPage from "../pages/LoginPage";
 import DashboardLayout from "../components/layouts/dashboard/DashboardLayout";
+import DashboardPage from "../pages/dashboard/DashboardPage";
 
 const AppRoutes = () => {
   return (
@@ -16,7 +17,7 @@ const AppRoutes = () => {
         <Route path="/login" element={<LoginPage />} />
         {/* Dashboard Routes */}
         <Route path="/dashboard" element={<DashboardLayout />}>
-          <Route index element={<h1>Main Dashboard</h1>} />
+          <Route index element={<DashboardPage />} />
           <Route path="edit-profile" element={<h1>Edit Profile</h1>} />
           <Route path="add-employee" element={<h1>Add Employee</h1>} />
           <Route path="edit-employee/:id" element={<h1>Edit Employee</h1>} />
