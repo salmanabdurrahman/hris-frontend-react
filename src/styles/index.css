@@ -25,6 +25,12 @@
     background-color: #111827;
   }
 
+  button {
+    cursor: pointer;
+  }
+}
+
+@layer components {
   /* Elevation on hover */
   .hover-elevate {
     transition:
@@ -85,7 +91,13 @@
   html.dark .hero-pattern {
     background-image: radial-gradient(circle at center center, rgba(255, 255, 255, 0.03), transparent);
   }
-}
 
-@layer components {
+  /* Focus glow */
+  .focus\:glow {
+    transition: box-shadow 0.3s ease;
+  }
+
+  .focus\:glow:focus-within {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.4);
+  }
 }
