@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({
@@ -30,9 +31,9 @@ const LoginForm = () => {
     <div className="flex min-h-screen items-center justify-center p-4 lg:p-12">
       <div className="w-full max-w-md">
         <div className="mb-10 text-center lg:text-left">
-          <a href="/" className="mb-4 inline-flex items-center justify-center space-x-3 lg:justify-start">
+          <Link to="/" className="mb-4 inline-flex items-center justify-center space-x-3 lg:justify-start">
             <span className="self-center text-3xl font-semibold whitespace-nowrap dark:text-white">SimpleHRIS</span>
-          </a>
+          </Link>
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Selamat Datang Kembali</h1>
           <p className="mt-2 text-gray-600 dark:text-gray-400">Login untuk mengakses dashboard admin.</p>
         </div>

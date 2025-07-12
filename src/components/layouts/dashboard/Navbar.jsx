@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -7,6 +7,7 @@ const Navbar = () => {
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+    setIsOpen(false);
   }, [pathname]);
 
   const handleToggleMenu = () => {
@@ -16,9 +17,9 @@ const Navbar = () => {
   return (
     <header className="sticky start-0 top-0 z-20 w-full border-b border-gray-200 bg-white/80 shadow-sm backdrop-blur-md dark:border-gray-600 dark:bg-gray-900/80">
       <nav className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
-        <a href="/" className="flex items-center space-x-3">
+        <Link to="/" className="flex items-center space-x-3">
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">SimpleHRIS</span>
-        </a>
+        </Link>
         <div className="flex items-center space-x-3 md:order-2 md:space-x-4">
           <div className="flex items-center space-x-1 rounded-lg bg-gray-100 p-1 dark:bg-gray-800">
             <button id="theme-light-btn" className="rounded-md p-1.5 transition-colors" aria-label="Light mode">
@@ -61,28 +62,28 @@ const Navbar = () => {
               </div>
               <ul className="py-2" aria-labelledby="user-menu-button">
                 <li>
-                  <a
-                    href="/dashboard"
+                  <Link
+                    to="/dashboard"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
                   >
                     Dashboard
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/dashboard/edit-profile"
+                  <Link
+                    to="/dashboard/edit-profile"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
                   >
                     Profil
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href=""
+                  <Link
+                    to=""
                     className="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100 dark:text-red-400 dark:hover:bg-gray-600 dark:hover:text-white"
                   >
                     Logout
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

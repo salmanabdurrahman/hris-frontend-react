@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const DashboardActions = () => {
   return (
     <div className="mb-6 flex flex-col items-center justify-between gap-4 md:flex-row">
@@ -22,13 +24,13 @@ const DashboardActions = () => {
           <option value="UI/UX Designer">UI/UX Designer</option>
         </select>
       </div>
-      <a
-        href=""
+      <Link
+        to="/dashboard/add-employee"
         className="flex w-full items-center justify-center gap-2 rounded-lg bg-blue-600 px-5 py-2.5 font-semibold text-white transition-colors hover:bg-blue-700 md:w-auto"
       >
         <i className="bx bx-plus-circle text-lg" />
         <span>Tambah Pegawai</span>
-      </a>
+      </Link>
     </div>
   );
 };

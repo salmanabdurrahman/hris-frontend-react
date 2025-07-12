@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const DashboardTable = () => {
   return (
     <div className="overflow-x-auto rounded-lg bg-white shadow dark:bg-gray-800">
@@ -45,9 +47,12 @@ const DashboardTable = () => {
               </div>
             </td>
             <td className="px-6 py-4 text-center">
-              <a href="" className="font-medium text-blue-600 hover:underline dark:text-blue-500">
+              <Link
+                to="/dashboard/edit-employee/3"
+                className="font-medium text-blue-600 hover:underline dark:text-blue-500"
+              >
                 Edit
-              </a>
+              </Link>
             </td>
           </tr>
         </tbody>

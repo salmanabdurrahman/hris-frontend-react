@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const HomeHero = () => {
   return (
     <section className="relative flex min-h-[calc(100vh-80px)] items-center justify-center overflow-hidden bg-blue-50 py-20 dark:bg-gray-800/50">
@@ -16,12 +18,12 @@ const HomeHero = () => {
           </p>
         </div>
         <div className="mx-auto mt-10 max-w-sm" style={{ transitionDelay: "200ms" }}>
-          <a
-            href="/login"
+          <Link
+            to="/login"
             className="inline-block w-full rounded-lg bg-blue-600 px-8 py-4 text-center text-lg font-medium text-white transition-transform duration-300 hover:scale-105 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-800"
           >
             Mulai Kelola Sekarang
-          </a>
+          </Link>
         </div>
       </div>
     </section>

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const HomeCTA = () => {
   return (
     <section className="bg-blue-600 py-24">
@@ -8,12 +10,12 @@ const HomeCTA = () => {
             Coba demo gratis kami dan lihat bagaimana Sistem HR dapat membantu perusahaan Anda.
           </p>
           <div className="mt-8">
-            <a
-              href="/login"
+            <Link
+              to="/login"
               className="transform rounded-full bg-white px-10 py-4 text-lg font-bold text-blue-700 shadow-lg transition-all duration-300 hover:scale-105 hover:bg-slate-100"
             >
               Request Demo
-            </a>
+            </Link>
           </div>
         </div>
       </div>
