@@ -1,3 +1,5 @@
+import { dummyEmployees } from "../../../constants/dashboardPageData";
+
 const DashboardStatistics = () => {
   return (
     <div className="mb-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -7,7 +9,7 @@ const DashboardStatistics = () => {
         </div>
         <div>
           <p className="text-sm text-gray-500 dark:text-gray-400">Total Pegawai</p>
-          <p className="text-2xl font-bold text-gray-900 dark:text-white">124</p>
+          <p className="text-2xl font-bold text-gray-900 dark:text-white">{dummyEmployees.length}</p>
         </div>
       </div>
       <div className="flex items-center gap-4 rounded-lg bg-white p-6 shadow dark:bg-gray-800">
@@ -16,7 +18,7 @@ const DashboardStatistics = () => {
         </div>
         <div>
           <p className="text-sm text-gray-500 dark:text-gray-400">Pegawai Aktif</p>
-          <p className="text-2xl font-bold text-gray-900 dark:text-white">118</p>
+          <p className="text-2xl font-bold text-gray-900 dark:text-white">{dummyEmployees.length}</p>
         </div>
       </div>
       <div className="flex items-center gap-4 rounded-lg bg-white p-6 shadow dark:bg-gray-800">
@@ -25,7 +27,7 @@ const DashboardStatistics = () => {
         </div>
         <div>
           <p className="text-sm text-gray-500 dark:text-gray-400">Sedang Cuti</p>
-          <p className="text-2xl font-bold text-gray-900 dark:text-white">3</p>
+          <p className="text-2xl font-bold text-gray-900 dark:text-white">0</p>
         </div>
       </div>
       <div className="flex items-center gap-4 rounded-lg bg-white p-6 shadow dark:bg-gray-800">
@@ -34,7 +36,7 @@ const DashboardStatistics = () => {
         </div>
         <div>
           <p className="text-sm text-gray-500 dark:text-gray-400">Non-Aktif</p>
-          <p className="text-2xl font-bold text-gray-900 dark:text-white">3</p>
+          <p className="text-2xl font-bold text-gray-900 dark:text-white">0</p>
         </div>
       </div>
     </div>

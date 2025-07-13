@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
+import { divisions } from "../../../constants/dashboardPageData";
 
-const DashboardActions = () => {
+const DashboardActions = ({ searchTerm, onSearchChange, onDivisionChange, selectedDivision }) => {
   return (
     <div className="mb-6 flex flex-col items-center justify-between gap-4 md:flex-row">
       <div className="relative w-full md:w-1/3">
@@ -11,17 +12,24 @@ const DashboardActions = () => {
           type="text"
           placeholder="Cari nama pegawai..."
           className="w-full rounded-lg border border-gray-300 p-2.5 ps-10 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white"
+          value={searchTerm}
+          onChange={onSearchChange}
         />
       </div>
       <div className="relative w-full md:w-1/3">
-        <select className="w-full rounded-lg border border-gray-300 p-2.5 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white">
-          <option value>Filter berdasarkan Divisi</option>
-          <option value="Frontend">Frontend</option>
-          <option value="Backend">Backend</option>
-          <option value="Full Stack">Full Stack</option>
-          <option value="Mobile Apps">Mobile Apps</option>
-          <option value="QA">QA</option>
-          <option value="UI/UX Designer">UI/UX Designer</option>
+        <select
+          className="w-full rounded-lg border border-gray-300 p-2.5 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white"
+          value={selectedDivision}
+          onChange={onDivisionChange}
+        >
+          <option key="all-divisions" value="">
+            Semua Divisi
+          </option>
+          {divisions.map(division => (
+            <option key={division.id} value={division.name}>
+              {division.name}
+            </option>
+          ))}
         </select>
       </div>
       <Link
