@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
-import useTheme from "../../../hooks/useTheme";
+import useTheme from "./../../hooks/useTheme";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,6 +49,14 @@ const Navbar = () => {
               <i className="bx bx-desktop text-xl" />
             </button>
           </div>
+          {/* Login Button */}
+          {/* <Link
+            to="/login"
+            className="rounded-lg bg-blue-600 px-5 py-2.5 text-center text-sm font-medium text-white transition-colors hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-800"
+          >
+            Login Admin
+          </Link> */}
+          {/* User Menu */}
           <div id="user-menu" className="relative">
             <button
               id="user-menu-button"
@@ -80,10 +88,10 @@ const Navbar = () => {
               <ul className="py-2" aria-labelledby="user-menu-button">
                 <li>
                   <Link
-                    to="/dashboard"
+                    to={!pathname.startsWith("/dashboard") ? "/dashboard" : "/"}
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
                   >
-                    Dashboard
+                    {!pathname.startsWith("/dashboard") ? "Dashboard" : "Beranda"}
                   </Link>
                 </li>
                 <li>

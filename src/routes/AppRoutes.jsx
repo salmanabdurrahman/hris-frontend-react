@@ -1,8 +1,7 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import MainLayout from "../components/layouts/main/MainLayout";
+import Layout from "../components/layouts/Layout";
 import HomePage from "../pages/HomePage";
 import LoginPage from "../pages/LoginPage";
-import DashboardLayout from "../components/layouts/dashboard/DashboardLayout";
 import DashboardPage from "../pages/dashboard/DashboardPage";
 import EditProfilePage from "../pages/dashboard/EditProfilePage";
 import AddEmployeePage from "../pages/dashboard/AddEmployeePage";
@@ -13,13 +12,13 @@ const AppRoutes = () => {
     <Router>
       <Routes>
         {/* Main Routes */}
-        <Route path="/" element={<MainLayout />}>
+        <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
         </Route>
         {/* Auth Routes */}
         <Route path="/login" element={<LoginPage />} />
         {/* Dashboard Routes */}
-        <Route path="/dashboard" element={<DashboardLayout />}>
+        <Route path="/dashboard" element={<Layout />}>
           <Route index element={<DashboardPage />} />
           <Route path="edit-profile" element={<EditProfilePage />} />
           <Route path="add-employee" element={<AddEmployeePage />} />

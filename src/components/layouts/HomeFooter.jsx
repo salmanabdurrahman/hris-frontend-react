@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Footer = () => {
+const HomeFooter = () => {
   return (
     <footer className="border-t border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800">
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
@@ -59,4 +59,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default HomeFooter;
