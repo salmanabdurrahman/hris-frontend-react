@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, Link, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 import useTheme from "./../../hooks/useTheme";
 import useAuth from "./../../hooks/useAuth";
 
@@ -7,7 +8,8 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { pathname } = useLocation();
   const { theme, toggleTheme } = useTheme();
-  const { isAuthenticated, user } = useAuth();
+  const { isAuthenticated, user, logout } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -16,6 +18,12 @@ const Navbar = () => {
 
   const handleToggleMenu = () => {
     setIsOpen(prev => !prev);
+  };
+
+  const handleLogout = () => {
+    logout();
+    toast.success("Anda telah berhasil logout.");
+    navigate("/login");
   };
 
   return (
@@ -98,12 +106,13 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      to=""
-                      className="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100 dark:text-red-400 dark:hover:bg-gray-600 dark:hover:text-white"
+                    <button
+                      type="button"
+                      className="block w-full px-4 py-2 text-left text-sm text-red-600 hover:bg-gray-100 dark:text-red-400 dark:hover:bg-gray-600 dark:hover:text-white"
+                      onClick={handleLogout}
                     >
                       Logout
-                    </Link>
+                    </button>
                   </li>
                 </ul>
               </div>

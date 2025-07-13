@@ -1,11 +1,17 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
+import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
+
+const initialFormData = {
+  username: "",
+  password: "",
+};
 
 const LoginForm = () => {
-  const [formData, setFormData] = useState({
-    username: "",
-    password: "",
-  });
+  const [formData, setFormData] = useState(initialFormData);
+  const { login } = useAuth();
+  const navigate = useNavigate();
 
   const handleChangeInput = e => {
     const { name, value } = e.target;
@@ -20,11 +26,22 @@ const LoginForm = () => {
 
     // simple validation
     if (formData.username === "" || formData.password === "") {
-      alert("Username and Password cannot be empty.");
+      toast.error("Username dan Password tidak boleh kosong!");
       return;
     }
 
-    console.log("Form submitted with data:", formData);
+    try {
+      login(formData);
+    } catch (error) {
+      toast.error(error.message || "Login gagal, silakan coba lagi.");
+      console.error("Login error:", error);
+      return;
+    } finally {
+      setFormData(initialFormData);
+    }
+
+    toast.success("Anda telah berhasil login.");
+    navigate("/dashboard");
   };
 
   return (

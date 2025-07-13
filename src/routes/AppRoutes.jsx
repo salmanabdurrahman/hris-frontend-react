@@ -1,4 +1,5 @@
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Navigate, Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 import Layout from "../components/layouts/Layout";
 import HomePage from "../pages/HomePage";
 import LoginPage from "../pages/LoginPage";
@@ -9,6 +10,8 @@ import EditEmployeePage from "../pages/dashboard/EditEmployeePage";
 import ProtectedRoute from "./ProtectedRoute";
 
 const AppRoutes = () => {
+  const { isAuthenticated } = useAuth();
+
   return (
     <Router>
       <Routes>
@@ -17,7 +20,7 @@ const AppRoutes = () => {
           <Route index element={<HomePage />} />
         </Route>
         {/* Auth Routes */}
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/login" element={isAuthenticated ? <Navigate to="/dashboard" /> : <LoginPage />} />
         {/* Dashboard Routes */}
         <Route element={<ProtectedRoute />}>
           <Route path="/dashboard" element={<Layout />}>
