@@ -14,7 +14,7 @@ const DashboardPagination = ({ dataPerPage, totalData, setCurrentPage, currentPa
     <nav className="flex flex-col items-center justify-between pt-4 sm:flex-row" aria-label="Table navigation">
       <div></div>
       <ul className="inline-flex h-8 -space-x-px text-sm rtl:space-x-reverse">
-        <li>
+        <li className="hidden sm:block">
           <button
             type="button"
             className="ms-0 flex h-8 items-center justify-center rounded-s-lg border border-gray-300 bg-white px-3 leading-tight text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
@@ -40,7 +40,7 @@ const DashboardPagination = ({ dataPerPage, totalData, setCurrentPage, currentPa
             </a>
           </li>
         ))}
-        <li>
+        <li className="hidden sm:block">
           <button
             type="button"
             className="flex h-8 items-center justify-center rounded-e-lg border border-gray-300 bg-white px-3 leading-tight text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"

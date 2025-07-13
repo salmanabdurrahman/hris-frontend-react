@@ -9,7 +9,7 @@ const HomeDetailedFeature = () => {
               Simpan dan kelola semua informasi penting karyawan, mulai dari data pribadi, riwayat pekerjaan, dokumen
               kontrak, hingga data performa dalam satu database yang aman dan mudah diakses.
             </p>
-            <ul className="mt-6 space-y-4">
+            <ul className="mt-6 space-y-4 dark:text-slate-300">
               <li className="flex items-center gap-3">
                 <i className="bx bx-check-circle text-2xl text-blue-500" />
                 <span>Pencarian dan filter data yang cepat.</span>
@@ -26,9 +26,9 @@ const HomeDetailedFeature = () => {
           </div>
           <div className="animate-on-scroll order-1 md:order-2">
             <img
-              src="https://placehold.co/600x400/dbeafe/1e3a8a?text=Dashboard+Pegawai"
+              src="/assets/images/dashboard-preview.webp"
               alt="Ilustrasi Dashboard Pegawai"
-              className="w-full rounded-lg shadow-xl"
+              className="w-full rounded-lg shadow-xl dark:shadow-gray-800"
               loading="lazy"
             />
           </div>
