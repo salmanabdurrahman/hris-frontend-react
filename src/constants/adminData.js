@@ -1,5 +1,5 @@
 const adminData = {
-  id: 1,
+  id: crypto.randomUUID(),
   name: "Admin",
   username: "admin",
   email: "admin@simplehris.com",

@@ -9,7 +9,7 @@ const divisions = [
 
 const dummyEmployees = [
   {
-    id: "2",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=budi.santoso",
     name: "Budi Santoso",
     phone: "081234567890",
@@ -20,7 +20,7 @@ const dummyEmployees = [
     position: "Senior Frontend Developer",
   },
   {
-    id: "3",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=citra.lestari",
     name: "Citra Lestari",
     phone: "082345678901",
@@ -31,7 +31,7 @@ const dummyEmployees = [
     position: "Lead UI/UX Designer",
   },
   {
-    id: "4",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=agus.purnomo",
     name: "Agus Purnomo",
     phone: "083456789012",
@@ -42,7 +42,7 @@ const dummyEmployees = [
     position: "Backend Developer",
   },
   {
-    id: "5",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=diana.sari",
     name: "Diana Sari",
     phone: "084567890123",
@@ -53,7 +53,7 @@ const dummyEmployees = [
     position: "Quality Assurance Engineer",
   },
   {
-    id: "6",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=eko.prasetyo",
     name: "Eko Prasetyo",
     phone: "085678901234",
@@ -64,7 +64,7 @@ const dummyEmployees = [
     position: "Full Stack Developer",
   },
   {
-    id: "7",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=fitri.rahayu",
     name: "Fitri Rahayu",
     phone: "086789012345",
@@ -75,7 +75,7 @@ const dummyEmployees = [
     position: "Android Developer",
   },
   {
-    id: "8",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=galih.wijaya",
     name: "Galih Wijaya",
     phone: "087890123456",
@@ -86,7 +86,7 @@ const dummyEmployees = [
     position: "Senior Backend Developer",
   },
   {
-    id: "9",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=indah.permatasari",
     name: "Indah Permatasari",
     phone: "088901234567",
@@ -97,7 +97,7 @@ const dummyEmployees = [
     position: "Junior Frontend Developer",
   },
   {
-    id: "10",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=joko.susilo",
     name: "Joko Susilo",
     phone: "089012345678",
@@ -108,7 +108,7 @@ const dummyEmployees = [
     position: "Tech Lead",
   },
   {
-    id: "11",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=kartika.dewi",
     name: "Kartika Dewi",
     phone: "081123456789",
@@ -119,7 +119,7 @@ const dummyEmployees = [
     position: "UI/UX Researcher",
   },
   {
-    id: "12",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=lukman.hakim",
     name: "Lukman Hakim",
     phone: "082234567890",
@@ -130,7 +130,7 @@ const dummyEmployees = [
     position: "iOS Developer",
   },
   {
-    id: "13",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=maya.andini",
     name: "Maya Andini",
     phone: "083345678901",
@@ -141,7 +141,7 @@ const dummyEmployees = [
     position: "Automation QA Engineer",
   },
   {
-    id: "14",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=nina.rosita",
     name: "Nina Rosita",
     phone: "084456789012",
@@ -152,7 +152,7 @@ const dummyEmployees = [
     position: "Frontend Developer",
   },
   {
-    id: "15",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=rendi.saputra",
     name: "Rendi Saputra",
     phone: "085567890123",
@@ -163,7 +163,7 @@ const dummyEmployees = [
     position: "Database Administrator",
   },
   {
-    id: "16",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=sari.wulandari",
     name: "Sari Wulandari",
     phone: "086678901234",
@@ -174,7 +174,7 @@ const dummyEmployees = [
     position: "UI Designer",
   },
   {
-    id: "17",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=tono.marjono",
     name: "Tono Marjono",
     phone: "087789012345",
@@ -185,7 +185,7 @@ const dummyEmployees = [
     position: "Junior Full Stack Developer",
   },
   {
-    id: "18",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=vera.oktavia",
     name: "Vera Oktavia",
     phone: "088890123456",
@@ -196,7 +196,7 @@ const dummyEmployees = [
     position: "Manual QA Tester",
   },
   {
-    id: "19",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=yudi.gunawan",
     name: "Yudi Gunawan",
     phone: "089901234567",
@@ -207,7 +207,7 @@ const dummyEmployees = [
     position: "React Native Developer",
   },
   {
-    id: "20",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=zainal.arifin",
     name: "Zainal Arifin",
     phone: "081345678901",
@@ -218,7 +218,7 @@ const dummyEmployees = [
     position: "DevOps Engineer",
   },
   {
-    id: "21",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=anisa.rahmawati",
     name: "Anisa Rahmawati",
     phone: "082456789012",
@@ -229,7 +229,7 @@ const dummyEmployees = [
     position: "UI Engineer",
   },
   {
-    id: "22",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=andi.wijaya",
     name: "Andi Wijaya",
     phone: "082423064725",
@@ -237,7 +237,7 @@ const dummyEmployees = [
     position: "QA Tester",
   },
   {
-    id: "23",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=bella.putri",
     name: "Bella Putri",
     phone: "088731778139",
@@ -245,7 +245,7 @@ const dummyEmployees = [
     position: "UI/UX Researcher",
   },
   {
-    id: "24",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=cahyo.nugroho",
     name: "Cahyo Nugroho",
     phone: "087592263312",
@@ -253,7 +253,7 @@ const dummyEmployees = [
     position: "Full Stack Developer",
   },
   {
-    id: "25",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=dewi.sartika",
     name: "Dewi Sartika",
     phone: "084396849432",
@@ -261,7 +261,7 @@ const dummyEmployees = [
     position: "Junior Developer",
   },
   {
-    id: "26",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=evan.mahendra",
     name: "Evan Mahendra",
     phone: "088155280974",
@@ -269,7 +269,7 @@ const dummyEmployees = [
     position: "Product Designer",
   },
   {
-    id: "27",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=fika.lestari",
     name: "Fika Lestari",
     phone: "087678901331",
@@ -277,7 +277,7 @@ const dummyEmployees = [
     position: "Product Designer",
   },
   {
-    id: "28",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=gilang.prakoso",
     name: "Gilang Prakoso",
     phone: "084726900798",
@@ -285,7 +285,7 @@ const dummyEmployees = [
     position: "Full Stack Developer",
   },
   {
-    id: "29",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=hesti.rahayu",
     name: "Hesti Rahayu",
     phone: "082629433569",
@@ -293,7 +293,7 @@ const dummyEmployees = [
     position: "Automation QA Engineer",
   },
   {
-    id: "30",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=irfan.syah",
     name: "Irfan Syah",
     phone: "087923051327",
@@ -301,7 +301,7 @@ const dummyEmployees = [
     position: "Backend Developer",
   },
   {
-    id: "31",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=jihan.nabila",
     name: "Jihan Nabila",
     phone: "084946251200",
@@ -309,7 +309,7 @@ const dummyEmployees = [
     position: "Mobile Developer",
   },
   {
-    id: "32",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=kevin.saputra",
     name: "Kevin Saputra",
     phone: "087634323112",
@@ -317,7 +317,7 @@ const dummyEmployees = [
     position: "UX Designer",
   },
   {
-    id: "33",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=larasati.dewi",
     name: "Larasati Dewi",
     phone: "081370777563",
@@ -325,7 +325,7 @@ const dummyEmployees = [
     position: "Full Stack Developer",
   },
   {
-    id: "34",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=muhammad.fahri",
     name: "Muhammad Fahri",
     phone: "083594838298",
@@ -333,7 +333,7 @@ const dummyEmployees = [
     position: "Product Designer",
   },
   {
-    id: "35",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=nadia.fitri",
     name: "Nadia Fitri",
     phone: "085193779661",
@@ -341,7 +341,7 @@ const dummyEmployees = [
     position: "UI Designer",
   },
   {
-    id: "36",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=oscar.yudha",
     name: "Oscar Yudha",
     phone: "082265029628",
@@ -349,7 +349,7 @@ const dummyEmployees = [
     position: "Frontend Developer",
   },
   {
-    id: "37",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=putri.anggraini",
     name: "Putri Anggraini",
     phone: "087552618457",
@@ -357,7 +357,7 @@ const dummyEmployees = [
     position: "Software Engineer",
   },
   {
-    id: "38",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=raka.perdana",
     name: "Raka Perdana",
     phone: "089787048462",
@@ -365,7 +365,7 @@ const dummyEmployees = [
     position: "Mid Developer",
   },
   {
-    id: "39",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=sinta.aprilia",
     name: "Sinta Aprilia",
     phone: "084778855736",
@@ -373,7 +373,7 @@ const dummyEmployees = [
     position: "QA Tester",
   },
   {
-    id: "40",
+    id: crypto.randomUUID(),
     image: "https://i.pravatar.cc/150?u=tegar.wibowo",
     name: "Tegar Wibowo",
     phone: "083452173979",

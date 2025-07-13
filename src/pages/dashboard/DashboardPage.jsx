@@ -4,21 +4,22 @@ import DashboardHeader from "../../components/features/dashboard/DashboardHeader
 import DashboardStatistics from "../../components/features/dashboard/DashboardStatistics";
 import DashboardTable from "../../components/features/dashboard/DashboardTable";
 import DashboardPagination from "./../../components/features/dashboard/DashboardPagination";
-import { dummyEmployees } from "../../constants/dashboardPageData";
+import useEmployees from "../../hooks/useEmployees";
 
 const DashboardPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedDivision, setSelectedDivision] = useState("");
+  const { employees } = useEmployees();
   const dataPerPage = 7;
 
   const filteredEmployees = useMemo(() => {
-    return dummyEmployees.filter(employee => {
+    return employees.filter(employee => {
       const matchesSearch = employee.name.toLowerCase().includes(searchTerm.toLowerCase());
       const matchesDivision = selectedDivision ? employee.division.name === selectedDivision : true;
       return matchesSearch && matchesDivision;
     });
-  }, [dummyEmployees, searchTerm, selectedDivision]);
+  }, [employees, searchTerm, selectedDivision]);
 
   const indexOfLastEmployee = currentPage * dataPerPage;
   const indexOfFirstEmployee = indexOfLastEmployee - dataPerPage;
