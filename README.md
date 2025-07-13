@@ -1,7 +1,7 @@
 # SimpleHRIS Frontend
 
 <div align="center">
-  <img src="/public/assets/icons/favicon.ico" alt="Logo SimpleHRIS" loading="lazy"/>
+  <!-- <img src="/public/assets/icons/favicon.ico" alt="Logo SimpleHRIS" loading="lazy"/> -->
   <h1 align="center">SimpleHRIS</h1>
   <p align="center"><em>Antarmuka Modern untuk Manajemen Sumber Daya Manusia</em></p>
 </div>
