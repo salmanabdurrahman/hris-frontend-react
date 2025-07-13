@@ -1,32 +1,22 @@
 # SimpleHRIS Frontend
 
-<div align="center">
-  <!-- <img src="/public/assets/icons/favicon.ico" alt="Logo SimpleHRIS" loading="lazy"/> -->
-  <h1 align="center">SimpleHRIS</h1>
-  <p align="center"><em>Antarmuka Modern untuk Manajemen Sumber Daya Manusia</em></p>
-</div>
-
 ## 📝 Deskripsi
 
-**SimpleHRIS** adalah sebuah antarmuka web (_frontend_) yang dirancang untuk sebuah Sistem Informasi Sumber Daya Manusia (HRIS). Proyek ini fokus pada pembuatan UI yang bersih, responsif, dan interaktif.
+**SimpleHRIS** adalah antarmuka web (_frontend_) untuk Sistem Informasi Sumber Daya Manusia (HRIS). Proyek ini menekankan desain UI yang sederhana, responsif, dan mudah digunakan.
 
-Aplikasi ini dibangun dari nol menggunakan **ReactJS (Vite)** dan di-styling dengan **TailwindCSS**, tanpa menggunakan library komponen UI eksternal. Semua fungsionalitas, mulai dari autentikasi hingga CRUD, diimplementasikan di sisi klien (_client-side_) dengan memanfaatkan _dummy data_ dan _local storage_ untuk persistensi.
+Aplikasi dibangun menggunakan **ReactJS (Vite)** dan **TailwindCSS**, tanpa library komponen UI eksternal. Seluruh fungsionalitas utama, seperti autentikasi dan manajemen data, diimplementasikan di sisi klien dengan _dummy data_ dan _local storage_ untuk penyimpanan sementara.
 
 ## ✨ Fitur Utama
 
-- **Sistem Autentikasi:** Fungsionalitas Login dan Logout yang aman berbasis _local storage_.
-- **Protected Routes:** Halaman-halaman dashboard hanya bisa diakses setelah pengguna berhasil login.
-- **Manajemen Pegawai (CRUD):**
-  - **Create:** Menambah data pegawai baru melalui form.
-  - **Read:** Menampilkan data semua pegawai dalam format tabel yang jelas.
-  - **Update:** Mengedit data pegawai yang sudah ada.
-  - **Delete:** Menghapus data pegawai (dengan konfirmasi).
-- **Pencarian & Filter:** Memfilter data pegawai berdasarkan nama dan divisi.
-- **Paginasi Manual:** Navigasi antar halaman data tabel yang dibuat secara manual tanpa library pihak ketiga.
-- **Manajemen Profil:** Pengguna (admin) dapat mengedit data profilnya sendiri.
-- **Dark/Light/System Mode:** Tiga pilihan tema yang bisa disesuaikan dan mengikuti preferensi OS.
-- **Desain Responsif:** Tampilan yang optimal di berbagai perangkat (desktop, tablet, dan mobile).
-- **Notifikasi Toast:** Umpan balik interaktif untuk setiap aksi pengguna (misalnya, login berhasil/gagal).
+- **Autentikasi Pengguna:** Login dan logout berbasis _local storage_.
+- **Akses Terproteksi:** Hanya pengguna yang sudah login dapat mengakses halaman tertentu.
+- **Manajemen Data Pegawai:** Tambah, lihat, edit, dan hapus data pegawai.
+- **Pencarian & Filter:** Cari dan filter data pegawai berdasarkan kriteria tertentu.
+- **Paginasi:** Navigasi antar halaman data tabel secara manual.
+- **Manajemen Profil:** Edit data profil pengguna.
+- **Mode Tema:** Pilihan tema gelap, terang, dan mengikuti sistem.
+- **Desain Responsif:** Tampilan optimal di berbagai perangkat.
+- **Notifikasi Interaktif:** Umpan balik untuk aksi pengguna.
 
 ## 🚀 Teknologi yang Digunakan
 
