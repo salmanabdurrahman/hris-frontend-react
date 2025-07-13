@@ -163,10 +163,7 @@ const AddEmployeeForm = () => {
             </div>
           </div>
         </div>
-        <div
-          className="animate-fade-in-up rounded-lg bg-white p-8 shadow lg:col-span-1 dark:bg-gray-800"
-          style={{ animationDelay: "100ms" }}
-        >
+        <div className="animate-fade-in-up rounded-lg bg-white p-8 shadow lg:col-span-1 dark:bg-gray-800">
           <h3 className="mb-4 text-lg font-semibold text-gray-900 dark:text-white">Foto Profil</h3>
           <div className="flex w-full items-center justify-center">
             <label
@@ -192,7 +189,7 @@ const AddEmployeeForm = () => {
                 type="file"
                 name="image"
                 className="hidden"
-                accept="image/*"
+                accept="image/jpg, image/jpeg, image/png"
                 onChange={handleChangeInput}
               />
             </label>

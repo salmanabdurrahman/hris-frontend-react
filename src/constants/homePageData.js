@@ -6,7 +6,6 @@ const features = [
     iconBg: "bg-blue-100",
     iconDarkColor: "dark:text-blue-400",
     iconDarkBg: "dark:bg-blue-900/50",
-    delay: 0,
   },
   {
     title: "Absensi Online",
@@ -15,7 +14,6 @@ const features = [
     iconBg: "bg-green-100",
     iconDarkColor: "dark:text-green-400",
     iconDarkBg: "dark:bg-green-900/50",
-    delay: 100,
   },
   {
     title: "Penggajian (Payroll)",
@@ -24,7 +22,6 @@ const features = [
     iconBg: "bg-amber-100",
     iconDarkColor: "dark:text-amber-400",
     iconDarkBg: "dark:bg-amber-900/50",
-    delay: 200,
   },
   {
     title: "Laporan & Analitik",
@@ -33,7 +30,6 @@ const features = [
     iconBg: "bg-red-100",
     iconDarkColor: "dark:text-red-400",
     iconDarkBg: "dark:bg-red-900/50",
-    delay: 300,
   },
 ];
 

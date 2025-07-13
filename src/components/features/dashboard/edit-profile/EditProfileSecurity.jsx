@@ -1,12 +1,15 @@
 const EditProfileSecurity = () => {
+  const handleFormSubmit = e => {
+    e.preventDefault();
+
+    alert("Fitur perubahan password belum diimplementasikan.");
+  };
+
   return (
     <div className="lg:col-span-1">
-      <div
-        className="animate-fade-in-up rounded-lg bg-white p-8 shadow dark:bg-gray-800"
-        style={{ animationDelay: "100ms" }}
-      >
+      <div className="animate-fade-in-up rounded-lg bg-white p-8 shadow dark:bg-gray-800">
         <h3 className="mb-4 text-lg font-semibold text-gray-900 dark:text-white">Keamanan</h3>
-        <form className="space-y-4">
+        <form className="space-y-4" method="POST" onSubmit={handleFormSubmit}>
           <div>
             <label htmlFor="current-password" className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
               Password Saat Ini
@@ -14,9 +17,9 @@ const EditProfileSecurity = () => {
             <input
               type="password"
               id="current-password"
+              name="current-password"
               className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700"
               placeholder="Masukkan password saat ini"
-              required
             />
           </div>
           <div>
@@ -28,7 +31,6 @@ const EditProfileSecurity = () => {
               id="new-password"
               className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700"
               placeholder="Masukkan password baru"
-              required
             />
           </div>
           <div>
@@ -40,7 +42,6 @@ const EditProfileSecurity = () => {
               id="confirm-password"
               className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700"
               placeholder="Masukkan konfirmasi password baru"
-              required
             />
           </div>
           <div className="pt-2">
