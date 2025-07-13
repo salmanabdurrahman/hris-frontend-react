@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
+import useAuth from "../../../../hooks/useAuth";
 
 const EditProfileForm = () => {
+  const { user, updateProfile } = useAuth();
   const [formData, setFormData] = useState({
-    name: "Admin HR",
-    username: "admin",
-    email: "admin@company.com",
+    name: user?.name || "",
+    username: user?.username || "",
+    email: user?.email || "",
   });
 
   const handleChangeInput = e => {
@@ -20,37 +23,38 @@ const EditProfileForm = () => {
     e.preventDefault();
 
     // simple validation
-    if (!formData.name) {
-      alert("Please fill in all required fields.");
+    if (!formData.name || !formData.username) {
+      alert("Silakan isi semua field yang diperlukan.");
       return;
     }
 
-    console.log("Form submitted with data:", formData);
+    try {
+      updateProfile(formData);
+    } catch (error) {
+      toast.error(error.message || "Gagal memperbarui profil, silakan coba lagi.");
+      console.error("Update profile error:", error);
+      return;
+    }
+
+    toast.success("Profil berhasil diperbarui.");
   };
 
   return (
     <div className="lg:col-span-2">
       <div className="animate-fade-in-up rounded-lg bg-white p-8 shadow dark:bg-gray-800">
         <h1 className="mb-6 text-3xl font-bold text-gray-900 dark:text-white">Profil Akun</h1>
-        <div
-          id="success-alert"
-          className="mb-4 hidden rounded-lg bg-green-100 p-4 text-sm text-green-800 dark:bg-gray-700 dark:text-green-400"
-          role="alert"
-        >
-          <span className="font-medium">Berhasil!</span> Data profil Anda telah diperbarui.
-        </div>
         <form id="profile-form" method="POST" className="space-y-8" onSubmit={handleFormSubmit}>
           <div className="flex items-center gap-6">
             <img
               className="h-24 w-24 rounded-full object-cover ring-4 ring-blue-200 dark:ring-blue-800"
-              src="https://i.pravatar.cc/100?u=admin"
+              src={user?.image || "https://i.pravatar.cc/100?u=admin"}
               alt="Admin photo"
             />
             <div>
               <h2 id="profile-name-header" className="text-2xl font-bold text-gray-900 dark:text-white">
-                {formData.name}
+                {user?.name}
               </h2>
-              <p className="text-gray-500 dark:text-gray-400">{formData.email}</p>
+              <p className="text-gray-500 dark:text-gray-400">{user?.email}</p>
             </div>
           </div>
           <div className="border-t border-gray-200 pt-6 dark:border-gray-700">
@@ -78,9 +82,21 @@ const EditProfileForm = () => {
                   type="text"
                   id="username"
                   name="username"
+                  className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                  value={formData.username}
+                  onChange={handleChangeInput}
+                  required
+                />
+              </div>
+              <div>
+                <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                <input
+                  type="text"
+                  id="email"
+                  name="email"
                   disabled
                   className="block w-full cursor-not-allowed rounded-lg border border-gray-300 bg-gray-100 p-2.5 text-sm text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-400 dark:placeholder-gray-400"
-                  value={formData.username}
+                  value={formData.email}
                 />
               </div>
             </div>

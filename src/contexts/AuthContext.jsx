@@ -22,11 +22,23 @@ const AuthProvider = ({ children }) => {
     removeUser();
   };
 
+  const handleUpdateProfile = updatedData => {
+    if (isAuthenticated) {
+      setUser(prevUser => ({
+        ...prevUser,
+        ...updatedData,
+      }));
+    } else {
+      throw new Error("User not authenticated");
+    }
+  };
+
   const value = {
     user,
     isAuthenticated,
     login: handleLogin,
     logout: handleLogout,
+    updateProfile: handleUpdateProfile,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

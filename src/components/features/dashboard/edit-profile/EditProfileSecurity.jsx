@@ -1,8 +1,12 @@
+import toast from "react-hot-toast";
+
 const EditProfileSecurity = () => {
   const handleFormSubmit = e => {
     e.preventDefault();
 
-    alert("Fitur perubahan password belum diimplementasikan.");
+    toast("Fitur perubahan password belum diimplementasikan.", {
+      icon: "🔒",
+    });
   };
 
   return (
