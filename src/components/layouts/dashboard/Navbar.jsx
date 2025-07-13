@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
+import useTheme from "../../../hooks/useTheme";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { pathname } = useLocation();
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -22,13 +24,28 @@ const Navbar = () => {
         </Link>
         <div className="flex items-center space-x-3 md:order-2 md:space-x-4">
           <div className="flex items-center space-x-1 rounded-lg bg-gray-100 p-1 dark:bg-gray-800">
-            <button id="theme-light-btn" className="rounded-md p-1.5 transition-colors" aria-label="Light mode">
+            <button
+              id="theme-light-btn"
+              className={`flex items-center rounded-md p-1.5 transition-colors ${theme === "light" ? "bg-white text-yellow-500 shadow dark:bg-gray-700 dark:text-yellow-400" : ""}`}
+              aria-label="Light mode"
+              onClick={() => toggleTheme("light")}
+            >
               <i className="bx bxs-sun text-xl" />
             </button>
-            <button id="theme-dark-btn" className="rounded-md p-1.5 transition-colors" aria-label="Dark mode">
+            <button
+              id="theme-dark-btn"
+              className={`flex items-center rounded-md p-1.5 transition-colors ${theme === "dark" ? "bg-white text-yellow-500 shadow dark:bg-gray-700 dark:text-yellow-400" : ""}`}
+              aria-label="Dark mode"
+              onClick={() => toggleTheme("dark")}
+            >
               <i className="bx bxs-moon text-xl" />
             </button>
-            <button id="theme-system-btn" className="rounded-md p-1.5 transition-colors" aria-label="System mode">
+            <button
+              id="theme-system-btn"
+              className={`flex items-center rounded-md p-1.5 transition-colors ${theme === "system" ? "bg-white text-yellow-500 shadow dark:bg-gray-700 dark:text-yellow-400" : ""}`}
+              aria-label="System mode"
+              onClick={() => toggleTheme("system")}
+            >
               <i className="bx bx-desktop text-xl" />
             </button>
           </div>

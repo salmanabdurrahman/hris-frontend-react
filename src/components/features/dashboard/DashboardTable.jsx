@@ -21,7 +21,7 @@ const DashboardTable = () => {
           </tr>
         </thead>
         <tbody>
-          <tr className="table-row-animate border-b bg-white transition-colors duration-200 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700/50">
+          <tr className="table-row-animate border-b border-gray-200 bg-white transition-colors duration-200 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700/50">
             <th scope="row" className="flex items-center px-6 py-4 whitespace-nowrap text-gray-900 dark:text-white">
               <img
                 className="h-10 w-10 rounded-full"
