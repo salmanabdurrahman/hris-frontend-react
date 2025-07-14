@@ -33,7 +33,7 @@ const Navbar = () => {
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">SimpleHRIS</span>
         </Link>
         <div className="flex items-center space-x-3 md:order-2 md:space-x-4">
-          <div className="flex items-center space-x-1 rounded-lg bg-gray-100 p-1 dark:bg-gray-800">
+          <div className="hidden items-center space-x-1 rounded-lg bg-gray-100 p-1 sm:flex dark:bg-gray-800">
             <button
               id="theme-light-btn"
               className={`flex items-center rounded-md p-1.5 transition-colors ${theme === "light" ? "bg-white text-yellow-500 shadow dark:bg-gray-700 dark:text-yellow-400" : ""}`}

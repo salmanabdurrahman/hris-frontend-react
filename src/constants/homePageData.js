@@ -73,6 +73,26 @@ const faqs = [
     answer:
       "Kami menawarkan beberapa paket harga yang fleksibel, disesuaikan dengan jumlah karyawan dan fitur yang Anda butuhkan. Silakan hubungi tim sales kami untuk mendapatkan penawaran terbaik.",
   },
+  {
+    question: "Apakah ada support untuk proses implementasi?",
+    answer:
+      "Tentu. Tim kami akan membantu Anda sepenuhnya, mulai dari proses migrasi data dari sistem lama, training untuk tim Anda, hingga memastikan sistem berjalan lancar sesuai kebutuhan perusahaan Anda.",
+  },
+  {
+    question: "Apakah sistem ini cocok untuk perusahaan skala kecil?",
+    answer:
+      "Sangat cocok! Sistem kami dirancang untuk bisa diskalakan. Anda bisa mulai dengan paket dasar untuk UKM, dan seiring pertumbuhan perusahaan, Anda bisa dengan mudah menambah fitur atau kapasitas pengguna.",
+  },
+  {
+    question: "Bisakah sistem ini diakses melalui perangkat mobile?",
+    answer:
+      "Ya. SimpleHRIS dibangun dengan desain responsif, sehingga dapat diakses dengan nyaman melalui browser di smartphone atau tablet. Ini memudahkan manajer dan karyawan untuk mengakses informasi penting di mana saja.",
+  },
+  {
+    question: "Apakah ada masa percobaan gratis (free trial)?",
+    answer:
+      "Ada. Kami menyediakan periode percobaan gratis selama 14 hari dengan fitur lengkap tanpa perlu kartu kredit. Silakan hubungi tim kami untuk menjadwalkan demo dan mengaktifkan masa percobaan Anda.",
+  },
 ];
 
 export { features, testimonials, faqs };

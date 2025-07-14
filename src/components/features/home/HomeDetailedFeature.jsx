@@ -24,11 +24,11 @@ const HomeDetailedFeature = () => {
               </li>
             </ul>
           </div>
-          <div className="animate-on-scroll order-1 md:order-2">
+          <div className="animate-on-scroll hover-elevate order-1 md:order-2">
             <img
               src="/assets/images/dashboard-preview.webp"
               alt="Ilustrasi Dashboard Pegawai"
-              className="w-full rounded-lg shadow-xl dark:shadow-gray-800"
+              className="w-full rounded-lg shadow-xl dark:shadow-gray-800/90"
               loading="lazy"
             />
           </div>
