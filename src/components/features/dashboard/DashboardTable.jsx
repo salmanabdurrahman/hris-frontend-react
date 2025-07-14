@@ -28,7 +28,12 @@ const DashboardTable = ({ employees }) => {
                 key={employee.id}
               >
                 <th scope="row" className="flex items-center px-6 py-4 whitespace-nowrap text-gray-900 dark:text-white">
-                  <img className="h-10 w-10 rounded-full" src={employee.image} alt="Budi image" loading="lazy" />
+                  <img
+                    className="h-10 w-10 rounded-full"
+                    src={employee.image ?? `https://i.pravatar.cc/100?u=${employee.name}`}
+                    alt={`Image of ${employee.name}`}
+                    loading="lazy"
+                  />
                   <div className="ps-3">
                     <div className="text-base font-semibold">{employee.name}</div>
                     <div className="font-normal text-gray-500">{employee.email}</div>

@@ -1,15 +1,22 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import useEmployees from "../../../../hooks/useEmployees";
+import { divisions } from "../../../../constants/dashboardPageData";
+
+const initialFormData = {
+  name: "",
+  email: "",
+  phone: "",
+  division: "",
+  position: "",
+  image: null,
+};
 
 const AddEmployeeForm = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    division: "",
-    position: "",
-    image: null,
-  });
+  const [formData, setFormData] = useState(initialFormData);
+  const { createEmployee } = useEmployees();
+  const navigate = useNavigate();
 
   const handleChangeInput = e => {
     const { name, value, files } = e.target;
@@ -26,7 +33,16 @@ const AddEmployeeForm = () => {
     }
   };
 
-  const handleFormSubmit = e => {
+  const toBase64 = file => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = error => reject(error);
+    });
+  };
+
+  const handleFormSubmit = async e => {
     e.preventDefault();
 
     // simple validation
@@ -35,7 +51,31 @@ const AddEmployeeForm = () => {
       return;
     }
 
-    console.log("Form submitted with data:", formData);
+    const dataToSubmit = { ...formData };
+
+    // convert image to base64 if it exists
+    if (formData.image) {
+      try {
+        dataToSubmit.image = await toBase64(formData.image);
+      } catch (error) {
+        toast.error("Gagal mengonversi gambar, silakan coba lagi.");
+        console.error("Image conversion error:", error);
+        return;
+      }
+    }
+
+    try {
+      createEmployee(dataToSubmit);
+    } catch (error) {
+      toast.error(error.message || "Gagal menambahkan pegawai, silakan coba lagi.");
+      console.error("Add employee error:", error);
+      return;
+    } finally {
+      setFormData(initialFormData);
+    }
+
+    toast.success("Pegawai berhasil ditambahkan.");
+    navigate("/dashboard");
   };
 
   return (
@@ -136,12 +176,11 @@ const AddEmployeeForm = () => {
                     required
                   >
                     <option hidden>Pilih Divisi</option>
-                    <option value="Mobile Apps">Mobile Apps</option>
-                    <option value="QA">QA</option>
-                    <option value="Full Stack">Full Stack</option>
-                    <option value="Backend">Backend</option>
-                    <option value="Frontend">Frontend</option>
-                    <option value="UI/UX Designer">UI/UX Designer</option>
+                    {divisions.map(division => (
+                      <option key={division.id} value={division.name}>
+                        {division.name}
+                      </option>
+                    ))}
                   </select>
                 </div>
                 <div>
@@ -170,7 +209,10 @@ const AddEmployeeForm = () => {
               htmlFor="image"
               className="dark:hover:bg-bray-800 flex h-64 w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-gray-500 dark:hover:bg-gray-600"
             >
-              <div id="upload-prompt" className="flex flex-col items-center justify-center pt-5 pb-6">
+              <div
+                id="upload-prompt"
+                className={`flex flex-col items-center justify-center pt-5 pb-6 ${formData.image ? "hidden" : ""}`}
+              >
                 <i className="bx bx-cloud-upload text-4xl text-gray-500 dark:text-gray-400" />
                 <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
                   <span className="font-semibold">Klik untuk upload</span> atau seret file
@@ -179,9 +221,9 @@ const AddEmployeeForm = () => {
               </div>
               <img
                 id="image-preview"
-                src="#"
+                src={formData.image ? URL.createObjectURL(formData.image) : null}
                 alt="Image Preview"
-                className="hidden h-full w-full rounded-lg object-cover"
+                className={`h-full w-full rounded-lg object-cover ${formData.image ? "" : "hidden"}`}
                 loading="lazy"
               />
               <input

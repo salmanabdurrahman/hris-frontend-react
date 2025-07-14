@@ -1,6 +1,8 @@
-import { dummyEmployees } from "../../../constants/dashboardPageData";
+import useEmployees from "../../../hooks/useEmployees";
 
 const DashboardStatistics = () => {
+  const { employees } = useEmployees();
+
   return (
     <div className="mb-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
       <div className="flex items-center gap-4 rounded-lg bg-white p-6 shadow dark:bg-gray-800">
@@ -9,7 +11,7 @@ const DashboardStatistics = () => {
         </div>
         <div>
           <p className="text-sm text-gray-500 dark:text-gray-400">Total Pegawai</p>
-          <p className="text-2xl font-bold text-gray-900 dark:text-white">{dummyEmployees.length}</p>
+          <p className="text-2xl font-bold text-gray-900 dark:text-white">{employees.length}</p>
         </div>
       </div>
       <div className="flex items-center gap-4 rounded-lg bg-white p-6 shadow dark:bg-gray-800">
@@ -18,7 +20,7 @@ const DashboardStatistics = () => {
         </div>
         <div>
           <p className="text-sm text-gray-500 dark:text-gray-400">Pegawai Aktif</p>
-          <p className="text-2xl font-bold text-gray-900 dark:text-white">{dummyEmployees.length}</p>
+          <p className="text-2xl font-bold text-gray-900 dark:text-white">{employees.length}</p>
         </div>
       </div>
       <div className="flex items-center gap-4 rounded-lg bg-white p-6 shadow dark:bg-gray-800">

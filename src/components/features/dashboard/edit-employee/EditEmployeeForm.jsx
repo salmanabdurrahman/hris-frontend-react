@@ -1,15 +1,37 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import useEmployees from "../../../../hooks/useEmployees";
+import { divisions } from "../../../../constants/dashboardPageData";
+import toast from "react-hot-toast";
+
+const initialFormData = {
+  name: "",
+  email: "",
+  phone: "",
+  division: "",
+  position: "",
+  image: null,
+};
 
 const EditEmployeeForm = () => {
-  const [formData, setFormData] = useState({
-    name: "Sandi Budi",
-    email: "sandi.budi@example.com",
-    phone: "081234567890",
-    division: "Frontend",
-    position: "Senior Frontend Developer",
-    image: null,
-  });
+  const [formData, setFormData] = useState(initialFormData);
+  const { id } = useParams();
+  const { getEmployeeById, updateEmployee, deleteEmployee } = useEmployees();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const employee = getEmployeeById(id);
+    if (employee) {
+      setFormData({
+        name: employee.name ?? "",
+        email: employee.email ?? "",
+        phone: employee.phone ?? "",
+        division: employee.division.name ?? "",
+        position: employee.position ?? "",
+        image: employee.image ?? null,
+      });
+    }
+  }, [id]);
 
   const handleChangeInput = e => {
     const { name, value, files } = e.target;
@@ -26,7 +48,16 @@ const EditEmployeeForm = () => {
     }
   };
 
-  const handleFormSubmit = e => {
+  const toBase64 = file => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = error => reject(error);
+    });
+  };
+
+  const handleFormSubmit = async e => {
     e.preventDefault();
 
     // simple validation
@@ -35,7 +66,47 @@ const EditEmployeeForm = () => {
       return;
     }
 
-    console.log("Form submitted with data:", formData);
+    const dataToSubmit = { ...formData };
+
+    // convert image to base64 if it exists
+    if (typeof formData.image === "object" && formData.image instanceof File) {
+      try {
+        dataToSubmit.image = await toBase64(formData.image);
+      } catch (error) {
+        toast.error("Gagal mengonversi gambar, silakan coba lagi.");
+        console.error("Image conversion error:", error);
+        return;
+      }
+    }
+
+    try {
+      updateEmployee(id, dataToSubmit);
+    } catch (error) {
+      toast.error(error.message || "Gagal memperbarui data pegawai, silakan coba lagi.");
+      console.error("Update employee error:", error);
+      return;
+    } finally {
+      setFormData(initialFormData);
+    }
+
+    toast.success("Data pegawai berhasil diperbarui.");
+    navigate("/dashboard");
+  };
+
+  const handleDeleteEmployee = () => {
+    const isConfirmed = confirm("Apakah Anda yakin ingin menghapus pegawai ini? Tindakan ini tidak dapat diurungkan.");
+    if (isConfirmed) {
+      try {
+        deleteEmployee(id);
+      } catch (error) {
+        toast.error(error.message || "Gagal menghapus pegawai, silakan coba lagi.");
+        console.error("Delete employee error:", error);
+        return;
+      }
+
+      toast.success("Pegawai berhasil dihapus.");
+      navigate("/dashboard");
+    }
   };
 
   return (
@@ -134,14 +205,11 @@ const EditEmployeeForm = () => {
                     required
                   >
                     <option hidden>Pilih Divisi</option>
-                    <option value="Mobile Apps">Mobile Apps</option>
-                    <option value="QA">QA</option>
-                    <option value="Full Stack">Full Stack</option>
-                    <option value="Backend">Backend</option>
-                    <option value="Frontend" selected>
-                      Frontend
-                    </option>
-                    <option value="UI/UX Designer">UI/UX Designer</option>
+                    {divisions.map(division => (
+                      <option key={division.id} value={division.name}>
+                        {division.name}
+                      </option>
+                    ))}
                   </select>
                 </div>
                 <div>
@@ -171,7 +239,10 @@ const EditEmployeeForm = () => {
                 htmlFor="image"
                 className="dark:hover:bg-bray-800 flex h-64 w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-gray-500 dark:hover:bg-gray-600"
               >
-                <div id="upload-prompt" className="flex flex-col items-center justify-center pt-5 pb-6">
+                <div
+                  id="upload-prompt"
+                  className={`flex flex-col items-center justify-center pt-5 pb-6 ${formData.image ? "hidden" : ""}`}
+                >
                   <i className="bx bx-cloud-upload text-4xl text-gray-500 dark:text-gray-400" />
                   <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
                     <span className="font-semibold">Klik untuk upload</span> atau seret file
@@ -180,9 +251,9 @@ const EditEmployeeForm = () => {
                 </div>
                 <img
                   id="image-preview"
-                  src=""
+                  src={formData.image instanceof File ? URL.createObjectURL(formData.image) : formData.image}
                   alt="Image Preview"
-                  className="hidden h-full w-full rounded-lg object-cover"
+                  className={`h-full w-full rounded-lg object-cover ${formData.image ? "" : "hidden"}`}
                   loading="lazy"
                 />
                 <input
@@ -195,6 +266,11 @@ const EditEmployeeForm = () => {
                 />
               </label>
             </div>
+            {formData.image && (
+              <p className="mt-2 text-center text-sm text-gray-600 dark:text-gray-400">
+                Silakan unggah foto profil pegawai. Ukuran maksimal 1MB, format PNG atau JPG.
+              </p>
+            )}
           </div>
           <div className="animate-fade-in-up rounded-lg bg-white p-8 shadow dark:bg-gray-800">
             <h3 className="mb-4 text-lg font-semibold text-red-600 dark:text-red-500">Zona Berbahaya</h3>
@@ -205,6 +281,7 @@ const EditEmployeeForm = () => {
               id="delete-button"
               type="button"
               className="flex w-full items-center justify-center gap-2 rounded-lg bg-red-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-red-700 focus:ring-4 focus:ring-red-300 focus:outline-none dark:bg-red-500 dark:hover:bg-red-600 dark:focus:ring-red-800"
+              onClick={handleDeleteEmployee}
             >
               <i className="bx bx-trash" />
               Hapus Pegawai Ini

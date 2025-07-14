@@ -6,15 +6,26 @@ const useEmployees = () => {
 
   const createEmployee = employeeData => {
     const newEmployee = {
-      id: crypto.randomUUID(),
       ...employeeData,
+      id: crypto.randomUUID(),
+      division: {
+        id: crypto.randomUUID(),
+        name: employeeData.division,
+      },
     };
-    setEmployees(prevEmployees => [...prevEmployees, newEmployee]);
+
+    console.log("Creating new employee:", newEmployee);
+
+    setEmployees(prevEmployees => [newEmployee, ...prevEmployees]);
   };
 
   const updateEmployee = (id, updatedData) => {
     setEmployees(prevEmployees =>
-      prevEmployees.map(employee => (employee.id === id ? { ...employee, ...updatedData } : employee))
+      prevEmployees.map(employee =>
+        employee.id === id
+          ? { ...employee, ...updatedData, division: { id: crypto.randomUUID(), name: updatedData.division } }
+          : employee
+      )
     );
   };
 
