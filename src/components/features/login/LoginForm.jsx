@@ -44,6 +44,18 @@ const LoginForm = () => {
     navigate("/dashboard");
   };
 
+  const handleGoogleLogin = () => {
+    toast("Fitur login dengan Google belum diimplementasikan.", {
+      icon: "🔒",
+    });
+  };
+
+  const handleMicrosoftLogin = () => {
+    toast("Fitur login dengan Microsoft belum diimplementasikan.", {
+      icon: "🔒",
+    });
+  };
+
   return (
     <div className="flex min-h-screen items-center justify-center p-4 lg:p-12">
       <div className="w-full max-w-md">
@@ -122,11 +134,17 @@ const LoginForm = () => {
           <div className="h-px w-full bg-gray-200 dark:bg-gray-700" />
         </div>
         <div className="grid grid-cols-2 gap-4">
-          <button className="flex w-full items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2.5 transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
+          <button
+            className="flex w-full items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2.5 transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800"
+            onClick={handleGoogleLogin}
+          >
             <i className="bx bxl-google text-xl text-red-500" />
             <span className="text-sm font-medium text-gray-700 dark:text-gray-200">Google</span>
           </button>
-          <button className="flex w-full items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2.5 transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
+          <button
+            className="flex w-full items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2.5 transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800"
+            onClick={handleMicrosoftLogin}
+          >
             <i className="bx bxl-microsoft text-xl text-blue-500" />
             <span className="text-sm font-medium text-gray-700 dark:text-gray-200">Microsoft</span>
           </button>
